@@ -1,108 +1,213 @@
 /* ============================================================
-   HOLD IT DOWN — colors & type
-   Brand: UK Garage / soundsystem / brutalism / 90s rave flyer / xerox
+   HOLD IT DOWN — Design Tokens
+   One system. One look. Everything traces back to a source.
+
+   REFERENCE IMAGES (assets/ folder):
+   · poster-brutalist-drip.png   — the base: black ink on cream paper,
+                                   xerox halftone quality, drip logotype,
+                                   vinyl mascot, "DRESS 2 SWEAT" callsign
+   · flyer-wall-1.png            — accent colours as full paper stocks:
+   · flyer-wall-2.png              pink, yellow, cyan, green, purple, white
+                                   fly-posted at angles on a warm grey wall
+   · imagery-xerox-tower.png     — high-contrast B&W: ink + cream only,
+                                   brutalist building in halftone stamp
+   · imagery-pirate-tower.png    — Manchester at night: warm amber windows,
+                                   dark sky, sodium-orange cast
+   · photo-iconic-warcs-ufo.jpg  — Manchester street, real place, night,
+                                   unexpected neon (UFO) as the colour hit
+   · holditdown-logo-clean.png   — heavy condensed italic logotype, black
+   · mascot-vinyl.png            — vinyl character: ink outline, cream fill,
+                                   halftone texture, rubber-hose style
+
+   REFERENCE RESEARCH (REFERENCES.md):
+   · Barbican Estate             — pick-hammered warm concrete, board-marked
+                                   formwork seams, hard right angles, no curves
+   · Trellick Tower              — asymmetric silhouette, in-situ board-marked
+                                   concrete, Goldfinger: materials show themselves
+   · Hulme Crescents             — deck-access rawness, demolished 1994,
+                                   exists only as xerox/found photograph now
+   · Burial (self-titled, 2006)  — plain spare type, urban, honest, no styling
+   · Burial (Untrue, 2007)       — Georgina Cook: real photography, real places,
+                                   available light, no Instagram filter
+
+   THE SYSTEM IN ONE LINE:
+   Concrete ground. Cream paper cards on that concrete. Deep ink for
+   all type and borders. Flyer colours for stickers and chips only.
    ============================================================ */
 
-/* ── Web fonts (Google Fonts substitutes — flagged in README) ── */
 @import url("https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&family=Inter:wght@400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap");
 
 :root {
+
   /* ============================================================
-     COLOR — paper, ink, and rave
+     CONCRETE
+     The page ground. Every surface starts here.
+
+     Calibrated from the board-marked poured concrete in the
+     Barbican Estate, Trellick Tower, and Hulme Crescents:
+     faintly warm aggregate — never cool grey, never blue-grey,
+     never beige, never cream. The warmth comes from the sand
+     in the mix, exposed where the formwork left marks.
+
+     Ref: Barbican (pick-hammered finish, warm aggregate),
+          Trellick (in-situ board-marked, raw tectonic),
+          Hulme (deck-access rawness — exists only in memory now).
+          See REFERENCES.md.
      ============================================================ */
 
-  /* ── CONCRETE — the primary ground.
-     The system is brutalist concrete first. Surfaces, cards, buttons,
-     and pages live on these greys. Calibrated against board-marked
-     poured concrete (Barbican / Trellick / Hulme): faintly warm but
-     never beige, never cream. */
-  --concrete-0:   #e6e3dd;   /* sun-bleached concrete, lightest */
-  --concrete-1:   #cfccc4;   /* poured concrete, default page ground */
-  --concrete-2:   #b3afa5;   /* weathered slab, card surface */
-  --concrete-3:   #807d74;   /* shadow-side concrete */
-  --concrete-4:   #4f4d46;   /* deep shadow / formwork seam */
-  --concrete-5:   #2c2b27;   /* under-deck shadow, near-ink */
+  --concrete-0:   #e6e3dd;   /* sun-bleached, lightest — high walkway in daylight */
+  --concrete-1:   #cfccc4;   /* poured slab, default page ground */
+  --concrete-2:   #b3afa5;   /* weathered, shadow side of the slab */
+  --concrete-3:   #807d74;   /* deep shadow, formwork recess */
+  --concrete-4:   #4f4d46;   /* under-deck shadow, near-dark */
+  --concrete-5:   #2c2b27;   /* formwork seam, near-ink */
 
-  /* ── PAPER — reserved for flyers, stickers, posters, callsign tags.
-     NOT the default page ground. If a surface has cream on it, it should
-     read as a piece of PAPER pasted onto concrete, not as a UI surface. */
-  --paper:        #efe4c4;   /* default warm paper */
-  --paper-2:      #f9f0d6;   /* lighter card paper */
-  --paper-3:      #fdf6e0;   /* lightest, near-white cream */
-  --paper-bone:   #f0e8d8;   /* logotype cream (from logo) */
 
-  /* ── WALL — the cool warm-grey ground specifically for fly-posted
-     wall collages and imagery surfaces. Sits between concrete and dust. */
+  /* ============================================================
+     PAPER
+     A piece of paper pasted onto concrete. Not the ground —
+     what sits ON the ground. Cards, stickers, posters, flyers.
+
+     Ref: poster-brutalist-drip.png — the whole poster is cream
+     paper with black ink. That's what cards are: that poster,
+     wheat-pasted onto a concrete wall.
+     ============================================================ */
+
+  --paper:        #efe4c4;   /* warm paper stock — the poster */
+  --paper-2:      #f9f0d6;   /* lighter card paper — default card surface */
+  --paper-3:      #fdf6e0;   /* near-white cream — chips, lightest fills */
+  --paper-bone:   #f0e8d8;   /* logotype cream — from holditdown-logo-clean.png */
+
+
+  /* ============================================================
+     WALL
+     The ground for the flyer-wall collage surface only.
+     Not a UI surface — it's the wall the flyers are pasted on.
+
+     Ref: flyer-wall-1.png, flyer-wall-2.png — the warm grey
+     behind the fly-posted stack of HID flyers.
+     ============================================================ */
+
   --wall:         #c9c9c9;   /* flyer-wall ground */
-  --wall-warm:    #cfc8bd;   /* warmer wall, daylight side */
-  --wall-cool:    #b8b8b8;   /* cooler wall, shadow side */
+  --wall-warm:    #cfc8bd;   /* daylight side */
+  --wall-cool:    #b8b8b8;   /* shadow side */
 
-  /* Ink — deep near-black, never pure #000 */
-  --ink:          #14110d;   /* primary ink */
-  --ink-soft:     #2c2820;   /* secondary ink, muted body */
+
+  /* ============================================================
+     INK
+     All type, all borders, all shadows. Deep near-black.
+     Never pure #000 — the ink in the poster-brutalist-drip.png
+     has warmth. It's a letterpress or risograph ink, not digital.
+
+     Ref: poster-brutalist-drip.png — the stamp/halftone ink.
+          holditdown-logo-clean.png — the logotype colour.
+     ============================================================ */
+
+  --ink:          #14110d;   /* primary ink — type, borders, shadows */
+  --ink-soft:     #2c2820;   /* muted body copy */
   --ink-faint:    rgba(20,17,13,0.55);
-  --ink-line:     rgba(20,17,13,0.18);
-  --ink-line-2:   rgba(20,17,13,0.1);
+  --ink-line:     rgba(20,17,13,0.18);   /* hairline dividers inside cards */
+  --ink-line-2:   rgba(20,17,13,0.10);   /* very faint — hover states */
 
-  /* Rave-flyer accents — sticker / chip / poster paper colors.
-     Calibrated against real flyer-archive scans: full-saturation fluoro,
-     not muted "designer" pastels. */
-  --pink:         #ff2d7a;   /* hot pink, primary accent */
-  --pink-deep:    #e6125f;
-  --cyan:         #2bc7e0;   /* electric cyan, not powder blue */
+
+  /* ============================================================
+     ACCENT COLOURS — flyer paper stocks
+     These are the paper the flyers are printed on, not digital
+     accent colours. In the UI they live on stickers and chips.
+     They never appear as gradients. Never on top of each other.
+     Always separated from adjacent surfaces by an ink border.
+
+     Ref: flyer-wall-1.png, flyer-wall-2.png — the actual
+     paper colours visible across the full fly-posted wall.
+     Six distinct stocks. Pink is the primary.
+     ============================================================ */
+
+  /* Full-saturation fluoro — for sticker fills, chip fills,
+     and high-emphasis moments. Extracted from the flyer wall. */
+  --pink:         #ff2d7a;   /* hot pink — primary accent, most used */
+  --pink-deep:    #e6125f;   /* deeper pink for borders on pink surfaces */
+  --cyan:         #2bc7e0;   /* electric cyan */
   --yellow:       #ffe600;   /* fluoro yellow */
-  --green:        #b6ff2e;   /* acid / fluoro green */
+  --green:        #b6ff2e;   /* acid green */
   --purple:       #b370ff;   /* electric purple */
   --orange:       #ff7a1f;   /* highlighter orange */
   --magenta:      #ff1ea0;   /* near-fluoro magenta */
   --blue:         #2050ff;   /* DIY pen blue */
 
-  /* Fluoro flyer paper variants (paper-stock backgrounds for stickers,
-     posters, chips). Slightly desaturated vs accents above to read as
-     PAPER not light. */
+  /* Flyer paper variants — same hues, slightly pulled back.
+     Reads as a paper stock rather than a light source.
+     Use where the full fluoro is too aggressive for body copy. */
   --flyer-pink:   #ff5fa0;
   --flyer-cyan:   #6ddae8;
-  --flyer-yellow: #f6f15a;   /* highlighter-yellow paper */
-  --flyer-green:  #c8f04a;   /* acid-green paper */
+  --flyer-yellow: #f6f15a;
+  --flyer-green:  #c8f04a;
   --flyer-purple: #d29bff;
   --flyer-orange: #ff9544;
   --flyer-salmon: #ffb09c;
   --flyer-mint:   #c5edd2;
 
-  /* ============================================================
-     SEMANTIC COLOR
-     ============================================================ */
-  /* Default ground is CONCRETE. Cream is reserved for flyer/poster "paper"
-     elements pasted onto a concrete surface. */
-  --bg:           var(--concrete-1);   /* page ground */
-  --bg-card:      var(--concrete-0);   /* card surface — lighter slab */
-  --bg-raised:    var(--concrete-2);   /* raised surface — darker slab */
-  --bg-paper:     var(--paper-2);      /* a piece of PAPER on concrete */
-  --bg-paper-2:   var(--paper-3);      /* lighter paper variant */
-  --bg-inverse:   var(--ink);
-  --fg:           var(--ink);
-  --fg-muted:     var(--ink-soft);
-  --fg-faint:     var(--ink-faint);
-  --fg-inverse:   var(--paper-3);
-  --border:       var(--ink);
-  --border-soft:  var(--ink-line);
-  --accent:       var(--pink);
 
-  /* State (rare; system is binary high-contrast by default) */
+  /* ============================================================
+     PHOTOGRAPHY PALETTE
+     Colour temperatures extracted from the reference photos.
+     Used when placing real photography on the site — not UI colours.
+
+     Ref: imagery-pirate-tower.png — tower block at night.
+          photo-iconic-warcs-ufo.jpg — Manchester street at night.
+     ============================================================ */
+
+  --photo-sodium:   #e8a04a;   /* amber-sodium window warmth (tower block windows) */
+  --photo-sky:      #1a1410;   /* Manchester night sky — warm dark, not blue */
+  --photo-spill:    #f0e8d8;   /* cream light spill from lit windows */
+  --photo-neon:     var(--pink); /* neon intrusion — the UFO, signage,
+                                    unexpected colour hit in a dark scene.
+                                    Ref: photo-iconic-warcs-ufo.jpg */
+
+
+  /* ============================================================
+     SEMANTIC — what each token IS used for
+     ============================================================ */
+
+  --bg:           var(--concrete-1);   /* page ground — always concrete */
+  --bg-card:      var(--paper-2);      /* card — paper pasted on concrete */
+  --bg-raised:    var(--concrete-0);   /* slightly lifted concrete surface */
+  --bg-inverse:   var(--ink);          /* inverse surface — ink ground */
+  --fg:           var(--ink);          /* primary text */
+  --fg-muted:     var(--ink-soft);     /* secondary text */
+  --fg-faint:     var(--ink-faint);    /* tertiary / placeholder */
+  --fg-inverse:   var(--paper-3);      /* text on ink surfaces */
+  --border:       var(--ink);          /* primary border */
+  --border-soft:  var(--ink-line);     /* internal dividers */
+  --accent:       var(--pink);         /* primary accent — stickers, CTAs */
+
+  /* State — rare, system is high-contrast by default */
   --state-error:  #d72638;
   --state-warn:   #ffb020;
   --state-ok:     #2f9e44;
 
+
   /* ============================================================
-     TYPE — fonts
-     Display: ANTON (sub for HOLD IT DOWN custom logotype)
-       — fallback to Impact / Haettenschweiler / Compacta
-     Body:    INTER (sub for Helvetica Neue) — Swiss, neutral
-     Mono:    SPACE MONO — utilitarian, brutalist
+     TYPOGRAPHY
+     Three faces. Each one has a job.
+
+     DISPLAY — Anton (Google Fonts sub for the HID custom logotype).
+     The actual HOLD IT DOWN wordmark (holditdown-logo-clean.png)
+     is a bespoke condensed italic — Anton is the closest free
+     approximation. Always uppercase. Always italic. The drip/gothic
+     variant (imagery-xerox-tower.png) is a separate logo asset,
+     not a font in this system.
+
+     BODY — Inter as Helvetica Neue substitute. Swiss, neutral.
+     The system is declarative and plain at body size. Ref: Burial's
+     typographic treatment — plain, spare, no decoration.
+
+     MONO — Space Mono. Callsigns, IDs, phone numbers, build
+     numbers. "CALL 0161 115 3007 FOR DETAILS" energy.
+     Ref: poster-brutalist-drip.png callsign copy.
      ============================================================ */
 
   --font-display: "Anton", "Archivo Black", Impact, Haettenschweiler,
-                  "Helvetica Neue", "Arial Black", sans-serif;
+                  "Arial Black", sans-serif;
 
   --font-sans:    "Inter", "Helvetica Neue", Helvetica, Arial,
                   "Liberation Sans", system-ui, sans-serif;
@@ -110,32 +215,32 @@
   --font-mono:    "Space Mono", "IBM Plex Mono", ui-monospace,
                   Menlo, Monaco, "Courier New", monospace;
 
-  /* Type scale — coarse, poster-like jumps */
-  --fs-xs:    11px;
-  --fs-sm:    13px;
-  --fs-base:  15px;
-  --fs-md:    17px;
-  --fs-lg:    21px;
-  --fs-xl:    28px;
-  --fs-2xl:   40px;
-  --fs-3xl:   60px;
-  --fs-4xl:   88px;
+  /* Type scale — coarse poster-like jumps, not fine increments */
+  --fs-xs:      11px;
+  --fs-sm:      13px;
+  --fs-base:    15px;
+  --fs-md:      17px;
+  --fs-lg:      21px;
+  --fs-xl:      28px;
+  --fs-2xl:     40px;
+  --fs-3xl:     60px;
+  --fs-4xl:     88px;
   --fs-display: 132px;
 
-  /* Line heights — tight on display, loose on body */
-  --lh-display: 0.9;
+  /* Line heights */
+  --lh-display: 0.9;    /* poster headlines — tight, compressed */
   --lh-tight:   1.1;
   --lh-snug:    1.3;
-  --lh-base:    1.55;
+  --lh-base:    1.55;   /* body copy — readable */
   --lh-loose:   1.7;
 
-  /* Letter spacing — Swiss body (neutral), poster (wide caps) */
+  /* Letter spacing */
   --tracking-tightest: -0.02em;
-  --tracking-tight:    -0.01em;
+  --tracking-tight:    -0.01em;   /* display headlines */
   --tracking-normal:    0;
   --tracking-wide:      0.04em;
-  --tracking-wider:     0.12em;
-  --tracking-widest:    0.22em;
+  --tracking-wider:     0.12em;   /* sticker labels */
+  --tracking-widest:    0.22em;   /* eyebrows, callsigns */
 
   /* Weights */
   --w-regular: 400;
@@ -145,9 +250,14 @@
   --w-heavy:   800;
   --w-black:   900;
 
+
   /* ============================================================
-     SPACING (4px grid)
+     SPACING — 4px grid
+     Deck-width breathing room. The Hulme Crescents decks were
+     wide enough for milk floats — generosity in spacing is
+     intentional. Don't compress the layout.
      ============================================================ */
+
   --sp-0:   0;
   --sp-1:   4px;
   --sp-2:   8px;
@@ -162,177 +272,171 @@
   --sp-20:  80px;
   --sp-24:  96px;
 
-  /* ============================================================
-     BORDER & RADIUS
-     The system is HARD-EDGED. Radii are reserved for stickers
-     and a couple of UI elements. Default is 0.
-     ============================================================ */
-  --radius-0:    0;          /* default */
-  --radius-1:    2px;        /* hairline rounding */
-  --radius-2:    4px;        /* tag/chip */
-  --radius-pill: 999px;      /* sticker pill (rare) */
-
-  --border-w-1:  1.5px;      /* hairlines, dividers */
-  --border-w-2:  2px;        /* chips */
-  --border-w-3:  2.5px;      /* primary card / button border (heavy) */
-  --border-w-4:  4px;        /* poster strokes */
 
   /* ============================================================
-     SHADOWS — stacked block shadows, NEVER soft / blurry
-     The system uses hard offset shadows ("xerox drop-stamp")
+     BORDERS & RADIUS
+     Hard-edged by default. Goldfinger's principle: materials
+     show themselves honestly. No concealment, no softening.
+
+     Ref: Trellick Tower — board-marked concrete, no cladding.
+          poster-brutalist-drip.png — every element has a hard edge.
+
+     The system has zero border-radius by default.
+     The only exception is --radius-pill for sticker shapes (rare).
      ============================================================ */
-  --shadow-stamp-1: 2px 2px 0 var(--ink);
-  --shadow-stamp-2: 5px 5px 0 var(--ink);
-  --shadow-stamp-3: 8px 8px 0 var(--ink);
-  --shadow-stamp-pink: 5px 5px 0 var(--pink);
-  --shadow-stamp-cyan: 5px 5px 0 var(--cyan);
+
+  --radius-0:    0;        /* default — always */
+  --radius-1:    2px;      /* hairline rounding only if absolutely required */
+  --radius-2:    4px;      /* tag/chip (use sparingly) */
+  --radius-pill: 999px;    /* sticker pill — rare, deliberate */
+
+  --border-w-1:  1.5px;    /* hairlines, internal card dividers */
+  --border-w-2:  2px;      /* chips, small elements */
+  --border-w-3:  2.5px;    /* primary card and button border */
+  --border-w-4:  4px;      /* poster-scale strokes */
+
+
+  /* ============================================================
+     SHADOWS — hard offset block shadows only
+     The stamp-shadow is the system's signature. It mimics the
+     physical offset of a rubber stamp hitting paper — the same
+     quality as the mascot and logotype in poster-brutalist-drip.png.
+
+     NO soft/blurry shadows. Ever.
+     No: box-shadow: 0 4px 12px rgba(0,0,0,0.1)
+     Yes: box-shadow: 5px 5px 0 var(--ink)
+
+     Ref: poster-brutalist-drip.png — every element stamp-quality.
+          mascot-vinyl.png — the mascot outline and shadow treatment.
+     ============================================================ */
+
+  --shadow-stamp-1: 2px 2px 0 var(--ink);   /* small — stickers */
+  --shadow-stamp-2: 5px 5px 0 var(--ink);   /* default — cards, buttons */
+  --shadow-stamp-3: 8px 8px 0 var(--ink);   /* large — hero elements */
+
+  /* Coloured stamp shadows — for hero/quote moments only.
+     Not on every card. Sparingly. */
+  --shadow-stamp-pink:   5px 5px 0 var(--pink);
+  --shadow-stamp-cyan:   5px 5px 0 var(--cyan);
   --shadow-stamp-yellow: 5px 5px 0 var(--yellow);
 
-  /* Soft shadows are AVOIDED. If absolutely needed: */
-  --shadow-soft: 0 2px 0 rgba(20,17,13,0.15);
-
-  /* ============================================================
-     NIGHT PALETTE — Manchester at night / Burial register
-     Extracted from imagery-pirate-tower.png and Burial self-titled.
-     Use with .hid-mode-night. See REFERENCES.md.
-     ============================================================ */
-  --night-sodium:   #e8a04a;   /* amber-sodium window warmth (tower block windows) */
-  --night-sky:      #1a1410;   /* near-ink warm dark sky */
-  --night-spill:    #f0e8d8;   /* cream light spill (--paper-bone) */
-  --night-neon:     var(--pink); /* neon intrusion — UFO, signage */
 
   /* ============================================================
      TEXTURE
-     The whole system sits on a paper-grain + halftone-noise floor.
+     The system sits on a paper-grain floor. Two layers:
+     1. SVG turbulence noise — paper grain / xerox halftone quality.
+        Ref: poster-brutalist-drip.png — the cream paper texture.
+             imagery-xerox-tower.png — the halftone stamp quality.
+     2. Halftone dot grid — the ink-on-paper print pattern.
      ============================================================ */
+
   --grain-url: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence baseFrequency='0.95' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
 
   --halftone-dots:
     radial-gradient(rgba(20,17,13,0.05) 1px, transparent 1px) 0 0 / 4px 4px;
+
 }
+
 
 /* ============================================================
-   SURFACE MODES — from the flyer-wall reference
-   Each accent colour is a full-surface background mode, not just
-   a chip fill. A "pink mode" flyer and a "yellow mode" flyer are
-   both valid, equal treatments. See REFERENCES.md — flyer-wall entry.
-   Usage: add .hid-mode-* to a section, card, or full page wrapper.
+   GROUND HELPERS
+   Apply to page, section, or wrapper elements.
    ============================================================ */
 
-.hid-mode-pink {
-  --surface-bg:     var(--pink);
-  --surface-fg:     var(--ink);
-  --surface-border: var(--ink);
-  background: var(--pink);
-  color: var(--ink);
-}
+/* CONCRETE — the default page ground.
+   Board-marked formwork seams (vertical, 64px apart) + aggregate grit.
 
-.hid-mode-yellow {
-  --surface-bg:     var(--yellow);
-  --surface-fg:     var(--ink);
-  --surface-border: var(--ink);
-  background: var(--yellow);
-  color: var(--ink);
-}
-
-.hid-mode-cyan {
-  --surface-bg:     var(--cyan);
-  --surface-fg:     var(--ink);
-  --surface-border: var(--ink);
-  background: var(--cyan);
-  color: var(--ink);
-}
-
-.hid-mode-green {
-  --surface-bg:     var(--green);
-  --surface-fg:     var(--ink);
-  --surface-border: var(--ink);
-  background: var(--green);
-  color: var(--ink);
-}
-
-.hid-mode-purple {
-  --surface-bg:     var(--purple);
-  --surface-fg:     var(--ink);
-  --surface-border: var(--ink);
-  background: var(--purple);
-  color: var(--ink);
-}
-
-.hid-mode-orange {
-  --surface-bg:     var(--orange);
-  --surface-fg:     var(--ink);
-  --surface-border: var(--ink);
-  background: var(--orange);
-  color: var(--ink);
-}
-
-/* Flyer paper variants — slightly desaturated, reads as paper stock */
-.hid-mode-flyer-pink   { background: var(--flyer-pink);   color: var(--ink); }
-.hid-mode-flyer-yellow { background: var(--flyer-yellow);  color: var(--ink); }
-.hid-mode-flyer-cyan   { background: var(--flyer-cyan);    color: var(--ink); }
-.hid-mode-flyer-green  { background: var(--flyer-green);   color: var(--ink); }
-.hid-mode-flyer-purple { background: var(--flyer-purple);  color: var(--ink); }
-.hid-mode-flyer-orange { background: var(--flyer-orange);  color: var(--ink); }
-
-/* ============================================================
-   NIGHT MODE — Burial register
-   South London at 3am. Ink ground, cream text, no accents.
-   Distant-lights pattern via scattered radial gradients.
-   See REFERENCES.md — Burial self-titled entry.
-   ============================================================ */
-
-.hid-mode-night {
-  /* Manchester night palette — sodium warmth tokens */
-  --night-sodium:   #e8a04a;   /* amber-sodium window warmth */
-  --night-sky:      #1a1410;   /* near-ink warm dark sky */
-  --night-spill:    var(--paper-bone); /* cream light spill from windows */
-  --night-neon:     var(--pink);       /* neon intrusion (UFO, signage) */
-
-  background-color: var(--ink);
-  color: var(--paper-3);
-
-  /* Distant-lights pattern — city seen from above at night.
-     Ref: Burial self-titled cover, aerial Wandsworth Prison/Trinity Rd. */
+   Ref: Barbican Estate — pick-and-bush-hammered surface, warm aggregate.
+        Trellick Tower — in-situ board-marked concrete, horizontal joint lines.
+        imagery-xerox-tower.png — the building rendered in the same raw quality.
+   See REFERENCES.md for full architectural breakdown. */
+.hid-ground-concrete {
+  background-color: var(--concrete-1);
   background-image:
-    radial-gradient(rgba(232,160,74,0.18) 1px, transparent 2px),
-    radial-gradient(rgba(253,246,224,0.12) 1px, transparent 1px),
-    radial-gradient(rgba(232,160,74,0.08) 1.5px, transparent 2px);
-  background-size: 40px 40px, 17px 17px, 73px 73px;
-  background-position: 0 0, 11px 19px, 31px 7px;
+    /* vertical formwork seams — timber-plank shadow lines */
+    repeating-linear-gradient(90deg,
+      rgba(20,17,13,0.06) 0 1px,
+      transparent 1px 64px),
+    /* horizontal pour joint — every four boards */
+    repeating-linear-gradient(0deg,
+      rgba(20,17,13,0.04) 0 1px,
+      transparent 1px 192px),
+    /* aggregate grit — the pick-hammered surface texture */
+    radial-gradient(rgba(20,17,13,0.07) 0.5px, transparent 0.7px),
+    radial-gradient(rgba(255,255,255,0.04) 0.4px, transparent 0.5px);
+  background-size: auto, auto, 3px 3px, 5px 5px;
 }
 
-.hid-mode-night .hid-display,
-.hid-mode-night .hid-h0,
-.hid-mode-night .hid-h1,
-.hid-mode-night .hid-h2,
-.hid-mode-night .hid-h3,
-.hid-mode-night .hid-h4 {
+/* PAPER ON CONCRETE — a card or poster surface.
+   Cream paper pasted or placed on the concrete ground.
+   Halftone dot grid gives it the print/xerox quality.
+
+   Ref: poster-brutalist-drip.png — this IS that poster on that wall. */
+.hid-ground-paper {
+  background:
+    var(--halftone-dots),
+    var(--paper);
+  position: relative;
+}
+
+/* FLYER WALL — the ground for collage / imagery surfaces only.
+   The warm grey the fly-posted flyers sit against.
+   Not a UI surface — it's a photography/collage background.
+
+   Ref: flyer-wall-1.png, flyer-wall-2.png */
+.hid-ground-wall {
+  background: var(--wall);
+}
+
+/* INVERSE — ink ground with cream text.
+   Used for the big quote block and high-contrast moments.
+   Not a full dark mode — a single surface treatment.
+
+   Ref: imagery-xerox-tower.png — the pure black + cream register.
+        The logotype in logo-cream-on-black.png. */
+.hid-ground-inverse {
+  background: var(--ink);
   color: var(--paper-3);
 }
 
-.hid-mode-night .hid-body,
-.hid-mode-night .hid-body-sm {
-  color: var(--paper-2);
+/* DEEP SHADOW — under-deck concrete, formwork shadow.
+   For footer, under-card, or deeply recessed elements.
+
+   Ref: Hulme Crescents under-deck spaces.
+        Barbican lower podium, beneath the Highwalks. */
+.hid-ground-shadow {
+  background-color: var(--concrete-4);
+  color: var(--paper-3);
 }
 
-/* Hulme ghost palette — xerox/halftone mode for Hulme Crescents references.
-   High contrast B&W, no midtones. See REFERENCES.md — Hulme entry. */
-.hid-mode-ghost {
-  background: var(--concrete-4);
-  color: var(--paper-3);
-  filter: contrast(1.15);
+/* GRAIN OVERLAY — adds paper texture to any surface.
+   Apply via ::before on any .hid-ground-* element.
+   Mix-blend-mode: multiply keeps it invisible on dark surfaces. */
+.hid-ground-paper::before,
+.hid-grain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.07;
+  background-image: var(--grain-url);
+  mix-blend-mode: multiply;
+  z-index: 0;
 }
+
 
 /* ============================================================
    SEMANTIC TYPE STYLES
-   Use these classes (or @apply equivalents) on real elements.
    ============================================================ */
 
+/* Display / H0 — the headline.
+   Anton as stand-in for the bespoke HID condensed italic.
+   Always uppercase. Always italic. Always the biggest thing.
+   Ref: holditdown-logo-clean.png — the logotype character. */
 .hid-display,
 .hid-h0 {
   font-family: var(--font-display);
-  font-weight: var(--w-regular); /* Anton ships only 400; weight is in the cut */
+  font-weight: var(--w-regular); /* Anton is 400 — weight is in the cut */
   font-style: italic;
   font-size: clamp(64px, 12vw, var(--fs-display));
   line-height: var(--lh-display);
@@ -377,6 +481,8 @@
   text-transform: uppercase;
 }
 
+/* Eyebrow — section label above a heading. Wide tracked caps.
+   Ref: "DRESS 2 SWEAT — SECRET LOCATION" in poster-brutalist-drip.png */
 .hid-eyebrow {
   font-family: var(--font-sans);
   font-weight: var(--w-black);
@@ -386,6 +492,7 @@
   color: var(--fg-muted);
 }
 
+/* Tag / sticker label */
 .hid-tag {
   font-family: var(--font-sans);
   font-weight: var(--w-heavy);
@@ -394,6 +501,8 @@
   text-transform: uppercase;
 }
 
+/* Body copy — plain, readable, no ornament.
+   Ref: Burial's typographic principle — spare, direct, urban. */
 .hid-body {
   font-family: var(--font-sans);
   font-weight: var(--w-regular);
@@ -410,6 +519,8 @@
   color: var(--fg-muted);
 }
 
+/* Mono — callsigns, IDs, phone numbers, build numbers.
+   Ref: "CALL 0161 115 3007 FOR DETAILS" from poster-brutalist-drip.png */
 .hid-mono {
   font-family: var(--font-mono);
   font-size: var(--fs-sm);
@@ -417,6 +528,8 @@
   letter-spacing: var(--tracking-tight);
 }
 
+/* Pull quote — heavy italic body text.
+   Ref: the quote block in the Field Manual. */
 .hid-quote {
   font-family: var(--font-sans);
   font-weight: var(--w-black);
@@ -424,62 +537,4 @@
   font-size: clamp(15px, 3vw, 20px);
   line-height: 1.4;
   letter-spacing: var(--tracking-tight);
-}
-
-/* ============================================================
-   GROUND / TEXTURE HELPERS
-   ============================================================ */
-
-.hid-ground-paper {
-  background:
-    var(--halftone-dots),
-    var(--paper);
-}
-
-/* Default ground for collage / imagery surfaces — warm wall grey */
-.hid-ground-wall {
-  background: var(--wall);
-}
-
-/* CONCRETE GROUND — the system default. Board-marked + grit. */
-.hid-ground-concrete {
-  background-color: var(--concrete-1);
-  background-image:
-    /* board-marked formwork seams — vertical timber-plank shadows */
-    repeating-linear-gradient(90deg,
-      rgba(20,17,13,0.06) 0 1px,
-      transparent 1px 64px),
-    /* faint horizontal joint every 4 boards */
-    repeating-linear-gradient(0deg,
-      rgba(20,17,13,0.04) 0 1px,
-      transparent 1px 192px),
-    /* grit / aggregate dust */
-    radial-gradient(rgba(20,17,13,0.07) 0.5px, transparent 0.7px),
-    radial-gradient(rgba(255,255,255,0.04) 0.4px, transparent 0.5px);
-  background-size: auto, auto, 3px 3px, 5px 5px;
-}
-
-/* Inverse — under-deck / formwork shadow */
-.hid-ground-shadow {
-  background-color: var(--concrete-4);
-  color: var(--paper-3);
-}
-
-/* Night-xerox ground — high-contrast B&W mode (Burial / Untrue, brutalist
-   night photography). Pair with --paper-3 ink-on-cream plates. */
-.hid-ground-night {
-  background: var(--ink);
-  color: var(--paper-3);
-}
-
-.hid-ground-paper::before,
-.hid-grain::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  opacity: 0.07;
-  background-image: var(--grain-url);
-  mix-blend-mode: multiply;
-  z-index: 0;
 }
