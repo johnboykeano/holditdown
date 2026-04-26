@@ -1,0 +1,25 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="_card.css"><title>Stamp Shadows</title>
+<style>
+.row3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; padding-right: 12px; }
+.box { background: var(--paper-2); border: 2.5px solid var(--ink); height: 96px; display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-size: 11px; color: var(--ink-soft); }
+.b1 { box-shadow: 2px 2px 0 var(--ink); }
+.b2 { box-shadow: 5px 5px 0 var(--ink); }
+.b3 { box-shadow: 8px 8px 0 var(--ink); }
+.bp { box-shadow: 5px 5px 0 var(--pink); }
+.bc { box-shadow: 5px 5px 0 var(--cyan); }
+.by { box-shadow: 5px 5px 0 var(--yellow); }
+.cap { font-family: var(--font-mono); font-size: 10px; color: var(--ink-soft); margin-top: 8px; text-align: center; }
+.cell { display: flex; flex-direction: column; }
+</style></head><body><div class="surface">
+<div class="row3">
+  <div class="cell"><div class="box b1">2 2 0</div><div class="cap">stamp-1</div></div>
+  <div class="cell"><div class="box b2">5 5 0</div><div class="cap">stamp-2 (default)</div></div>
+  <div class="cell"><div class="box b3">8 8 0</div><div class="cap">stamp-3</div></div>
+</div>
+<div style="height: 22px;"></div>
+<div class="row3">
+  <div class="cell"><div class="box bp">pink</div><div class="cap">stamp-pink</div></div>
+  <div class="cell"><div class="box bc">cyan</div><div class="cap">stamp-cyan</div></div>
+  <div class="cell"><div class="box by">yellow</div><div class="cap">stamp-yellow</div></div>
+</div>
+</div></body></html>

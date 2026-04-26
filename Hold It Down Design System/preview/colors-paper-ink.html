@@ -1,0 +1,91 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="_card.css"><title>Paper & Ink</title>
+<style>
+body { background: var(--wall); padding: 0; }
+.surface { background: var(--wall); padding: 16px; }
+
+.label {
+  font-family: var(--font-sans); font-weight: 900; font-size: 10px;
+  letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink);
+  opacity: 0.65; margin: 0 0 8px;
+}
+.label + .label { margin-top: 16px; }
+
+.row { display: grid; grid-template-columns: repeat(6, 1fr); gap: 0; }
+.slab {
+  height: 130px;
+  position: relative;
+  border-right: 2.5px solid var(--ink);
+  padding: 10px 11px;
+  display: flex; flex-direction: column; justify-content: space-between;
+  overflow: hidden;
+}
+.slab:last-child { border-right: 2.5px solid var(--ink); }
+.row { border: 2.5px solid var(--ink); }
+
+.slab .code {
+  font-family: var(--font-mono); font-size: 10px; font-weight: 700;
+  letter-spacing: 0.1em; line-height: 1;
+}
+.slab .name {
+  font-family: var(--font-sans); font-weight: 900; font-size: 12px;
+  letter-spacing: 0.16em; text-transform: uppercase; line-height: 1;
+  margin-top: 4px;
+}
+.slab .hex {
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.04em;
+  align-self: flex-end;
+}
+
+/* concrete grit on light slabs */
+.slab::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background:
+    repeating-linear-gradient(90deg, rgba(20,17,13,0.05) 0 1px, transparent 1px 38px),
+    radial-gradient(rgba(20,17,13,0.08) 0.5px, transparent 0.6px) 0 0 / 3px 3px;
+  mix-blend-mode: multiply;
+  opacity: 0.6;
+}
+.slab > * { position: relative; z-index: 1; }
+
+.s-paper   { background: var(--paper); color: var(--ink); }
+.s-paper-2 { background: var(--paper-2); color: var(--ink); }
+.s-paper-3 { background: var(--paper-3); color: var(--ink); }
+.s-wall    { background: var(--wall); color: var(--ink); }
+.s-wall-w  { background: var(--wall-warm); color: var(--ink); }
+.s-wall-c  { background: var(--wall-cool); color: var(--ink); }
+.s-conc-1  { background: var(--concrete-1); color: var(--ink); }
+.s-conc-2  { background: var(--concrete-2); color: var(--ink); }
+.s-conc-3  { background: var(--concrete-3); color: var(--paper-3); }
+.s-conc-4  { background: var(--concrete-4); color: var(--paper-3); }
+.s-soft    { background: var(--ink-soft); color: var(--paper-3); }
+.s-ink     { background: var(--ink); color: var(--paper-3); }
+
+.s-conc-3::before, .s-conc-4::before, .s-soft::before, .s-ink::before {
+  background:
+    repeating-linear-gradient(90deg, rgba(255,250,230,0.06) 0 1px, transparent 1px 38px),
+    radial-gradient(rgba(255,250,230,0.06) 0.5px, transparent 0.6px) 0 0 / 3px 3px;
+}
+</style></head>
+<body><div class="surface">
+
+<p class="label">Paper · cream / xerox stock</p>
+<div class="row">
+  <div class="slab s-paper-3"><div><div class="code">P-03</div><div class="name">paper-3</div></div><div class="hex">#FDF6E0</div></div>
+  <div class="slab s-paper-2"><div><div class="code">P-02</div><div class="name">paper-2</div></div><div class="hex">#F9F0D6</div></div>
+  <div class="slab s-paper"><div><div class="code">P-01</div><div class="name">paper</div></div><div class="hex">#EFE4C4</div></div>
+  <div class="slab s-wall"><div><div class="code">W-01</div><div class="name">wall</div></div><div class="hex">#C9C9C9</div></div>
+  <div class="slab s-wall-w"><div><div class="code">W-02</div><div class="name">wall-warm</div></div><div class="hex">#CFC8BD</div></div>
+  <div class="slab s-wall-c"><div><div class="code">W-03</div><div class="name">wall-cool</div></div><div class="hex">#B8B8B8</div></div>
+</div>
+
+<p class="label">Concrete · brutalist surface</p>
+<div class="row">
+  <div class="slab s-conc-1"><div><div class="code">C-01</div><div class="name">concrete-1</div></div><div class="hex">#CFCCC4</div></div>
+  <div class="slab s-conc-2"><div><div class="code">C-02</div><div class="name">concrete-2</div></div><div class="hex">#B3AFA5</div></div>
+  <div class="slab s-conc-3"><div><div class="code">C-03</div><div class="name">concrete-3</div></div><div class="hex">#807D74</div></div>
+  <div class="slab s-conc-4"><div><div class="code">C-04</div><div class="name">concrete-4</div></div><div class="hex">#4F4D46</div></div>
+  <div class="slab s-soft"><div><div class="code">I-02</div><div class="name">ink-soft</div></div><div class="hex">#2C2820</div></div>
+  <div class="slab s-ink"><div><div class="code">I-01</div><div class="name">ink</div></div><div class="hex">#14110D</div></div>
+</div>
+
+</div></body></html>

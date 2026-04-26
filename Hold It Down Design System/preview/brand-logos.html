@@ -1,0 +1,80 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="_card.css"><title>Brand Logos</title>
+<style>
+body { padding: 18px; }
+.grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+.cell {
+  border: 2.5px solid var(--ink);
+  height: 130px;
+  display: flex; align-items: center; justify-content: center;
+  padding: 12px; position: relative;
+  box-shadow: 4px 4px 0 var(--ink);
+}
+.cell img { max-width: 100%; max-height: 100%; height: auto; display: block; }
+.cell .tag {
+  position: absolute; top: 4px; left: 4px;
+  font-family: var(--font-mono); font-size: 8px; letter-spacing: 0.16em;
+  text-transform: uppercase; padding: 2px 5px; background: var(--ink); color: var(--paper-3);
+}
+.bg-paper  { background: var(--paper-2); }
+.bg-paper3 { background: var(--paper-3); }
+.bg-ink    { background: var(--ink); }
+.bg-pink   { background: var(--pink); }
+.bg-cyan   { background: var(--cyan); }
+.bg-yellow { background: var(--yellow); }
+.bg-check  {
+  background-color: #ddd;
+  background-image:
+    linear-gradient(45deg, #bbb 25%, transparent 25%),
+    linear-gradient(-45deg, #bbb 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #bbb 75%),
+    linear-gradient(-45deg, transparent 75%, #bbb 75%);
+  background-size: 14px 14px;
+  background-position: 0 0, 0 7px, 7px -7px, -7px 0;
+}
+.cap {
+  font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.12em;
+  color: var(--ink-soft); margin-top: 4px; text-align: center; text-transform: uppercase;
+}
+.cellw { display: flex; flex-direction: column; }
+.head {
+  font-family: var(--font-sans); font-weight: 900; font-size: 10px;
+  letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-soft);
+  margin: 0 0 8px;
+}
+.head:not(:first-child) { margin-top: 14px; }
+</style></head>
+<body><div class="surface">
+
+<div class="head">Wordmark · positive / inverse / textured</div>
+<div class="grid">
+  <div class="cellw"><div class="cell bg-paper3"><span class="tag">PNG</span><img src="../assets/holditdown-logo-clean.png"></div><div class="cap">primary · cream</div></div>
+  <div class="cellw"><div class="cell bg-ink"><span class="tag">PNG</span><img src="../assets/logo-cream-on-black.png"></div><div class="cap">inverse · ink</div></div>
+  <div class="cellw"><div class="cell bg-paper3"><span class="tag">PNG</span><img src="../assets/logo-textured-light.png"></div><div class="cap">textured xerox</div></div>
+  <div class="cellw"><div class="cell bg-check"><span class="tag">α PNG</span><img src="../assets/logo-cream-transparent.png"></div><div class="cap">cream · transparent</div></div>
+</div>
+
+<div class="head">Wordmark · color grounds</div>
+<div class="grid">
+  <div class="cellw"><div class="cell bg-pink"><span class="tag">PNG</span><img src="../assets/holditdown-logo-clean.png"></div><div class="cap">on pink</div></div>
+  <div class="cellw"><div class="cell bg-cyan"><span class="tag">PNG</span><img src="../assets/holditdown-logo-clean.png"></div><div class="cap">on cyan</div></div>
+  <div class="cellw"><div class="cell bg-yellow"><span class="tag">PNG</span><img src="../assets/holditdown-logo-clean.png"></div><div class="cap">on yellow</div></div>
+  <div class="cellw"><div class="cell bg-paper"><span class="tag">PNG</span><img src="../assets/logo-cream.png"></div><div class="cap">cream paper</div></div>
+</div>
+
+<div class="head">HID Monogram · square / favicon / sticker</div>
+<div class="grid">
+  <div class="cellw"><div class="cell bg-paper3" style="height:120px;"><span class="tag">PNG</span><img src="../assets/HID-monogram-clean.png" style="max-height: 90px;"></div><div class="cap">positive · solid</div></div>
+  <div class="cellw"><div class="cell bg-ink" style="height:120px;"><span class="tag">PNG</span><img src="../assets/HID-monogram.png" style="max-height: 90px;"></div><div class="cap">inverse · textured</div></div>
+  <div class="cellw"><div class="cell bg-check" style="height:120px;"><span class="tag">α PNG</span><img src="../assets/HID-monogram-ink-transparent.png" style="max-height: 90px;"></div><div class="cap">ink · transparent</div></div>
+  <div class="cellw"><div class="cell bg-check" style="height:120px;"><span class="tag">α PNG</span><img src="../assets/HID-monogram-cream-transparent.png" style="max-height: 90px;"></div><div class="cap">cream · transparent</div></div>
+</div>
+
+<div class="head">Mark · favicon / app tile</div>
+<div class="grid">
+  <div class="cellw"><div class="cell bg-paper3" style="height:80px;"><span class="tag">SVG</span><img src="../favicon.svg" style="height: 56px;"></div><div class="cap">favicon.svg · 100×100</div></div>
+  <div class="cellw"><div class="cell bg-paper3" style="height:80px;"><img src="../favicon.svg" style="height: 24px;"></div><div class="cap">@ 24px</div></div>
+  <div class="cellw"><div class="cell bg-paper3" style="height:80px;"><img src="../favicon.svg" style="height: 16px;"></div><div class="cap">@ 16px</div></div>
+  <div class="cellw"><div class="cell bg-ink" style="height:80px;"><img src="../favicon.svg" style="height: 40px;"></div><div class="cap">on ink</div></div>
+</div>
+
+</div></body></html>

@@ -1,0 +1,32 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="_card.css"><title>Buttons</title>
+<style>
+.row { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; padding: 12px 0; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--font-sans); font-weight: 900; font-size: 13px;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  border: 2.5px solid var(--ink);
+  padding: 12px 18px;
+  cursor: pointer;
+  background: var(--paper-3); color: var(--ink);
+  box-shadow: 5px 5px 0 var(--ink);
+  transition: transform 80ms linear, box-shadow 80ms linear, background 80ms linear;
+}
+.btn:hover { background: var(--ink); color: var(--paper-3); }
+.btn:active { transform: translate(4px,4px); box-shadow: 1px 1px 0 var(--ink); }
+.btn.ink { background: var(--ink); color: var(--paper-3); }
+.btn.ink:hover { background: var(--paper-3); color: var(--ink); }
+.btn.pink { background: var(--pink); color: var(--ink); }
+.btn.pink:hover { background: var(--ink); color: var(--pink); }
+.btn.ghost { background: transparent; box-shadow: none; padding: 10px 14px; border-width: 2px; }
+.btn.ghost:hover { background: var(--ink); color: var(--paper-3); }
+.lab { font-family: var(--font-mono); font-size: 9.5px; color: var(--ink-soft); letter-spacing: 0.12em; }
+.cell { display: flex; flex-direction: column; gap: 6px; }
+</style></head><body><div class="surface">
+<div class="row">
+  <div class="cell"><button class="btn">Open my journals</button><span class="lab">PRIMARY · CREAM</span></div>
+  <div class="cell"><button class="btn ink">Untangle with Claude ▸</button><span class="lab">PRIMARY · INK</span></div>
+  <div class="cell"><button class="btn pink">★ Drop Now</button><span class="lab">ACCENT · PINK</span></div>
+  <div class="cell"><button class="btn ghost">‹ Back</button><span class="lab">GHOST</span></div>
+</div>
+</div></body></html>

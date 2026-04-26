@@ -1,0 +1,66 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="_card.css"><title>Rave Accents</title>
+<style>
+body { background: var(--wall); }
+.surface { background: var(--wall); }
+.row { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; }
+.row + .row { margin-top: 12px; }
+.swatch {
+  border: 2.5px solid var(--ink);
+  height: 96px;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  padding: 8px; color: var(--ink);
+}
+.swatch .name {
+  font-family: var(--font-sans); font-weight: 900; font-size: 9.5px;
+  letter-spacing: 0.14em; text-transform: uppercase;
+}
+.swatch .hex { font-family: var(--font-mono); font-size: 10px; margin-top: 2px; }
+
+.label {
+  font-family: var(--font-sans); font-weight: 900; font-size: 10px;
+  letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink);
+  opacity: 0.65; margin: 0 0 8px;
+}
+.label + .label { margin-top: 16px; }
+
+.s-pink{background:var(--pink)} .s-cyan{background:var(--cyan)} .s-yellow{background:var(--yellow)}
+.s-green{background:var(--green)} .s-purple{background:var(--purple)} .s-orange{background:var(--orange)}
+.s-magenta{background:var(--magenta)} .s-blue{background:var(--blue); color:var(--paper-3);}
+
+.s-fpink{background:var(--flyer-pink)} .s-fcyan{background:var(--flyer-cyan)} .s-fyellow{background:var(--flyer-yellow)}
+.s-fgreen{background:var(--flyer-green)} .s-fpurple{background:var(--flyer-purple)} .s-forange{background:var(--flyer-orange)}
+.s-fsalmon{background:var(--flyer-salmon)} .s-fmint{background:var(--flyer-mint)}
+</style></head>
+<body><div class="surface">
+
+<p class="label">Fluoro accents · sticker + chip + ink</p>
+<div class="row">
+  <div class="swatch s-pink"><div class="name">pink ★</div><div class="hex">#ff2d7a</div></div>
+  <div class="swatch s-magenta"><div class="name">magenta</div><div class="hex">#ff1ea0</div></div>
+  <div class="swatch s-cyan"><div class="name">cyan</div><div class="hex">#2bc7e0</div></div>
+  <div class="swatch s-yellow"><div class="name">yellow</div><div class="hex">#ffe600</div></div>
+  <div class="swatch s-green"><div class="name">green</div><div class="hex">#b6ff2e</div></div>
+  <div class="swatch s-orange"><div class="name">orange</div><div class="hex">#ff7a1f</div></div>
+</div>
+<div class="row" style="grid-template-columns: repeat(6, 1fr); margin-top: 10px;">
+  <div class="swatch s-purple"><div class="name">purple</div><div class="hex">#b370ff</div></div>
+  <div class="swatch s-blue"><div class="name">blue</div><div class="hex">#2050ff</div></div>
+  <div></div><div></div><div></div><div></div>
+</div>
+
+<p class="label">Flyer paper stocks · highlighter / acid / sun-bleached</p>
+<div class="row">
+  <div class="swatch s-fpink"><div class="name">f-pink</div><div class="hex">#ff5fa0</div></div>
+  <div class="swatch s-fcyan"><div class="name">f-cyan</div><div class="hex">#6ddae8</div></div>
+  <div class="swatch s-fyellow"><div class="name">f-yellow</div><div class="hex">#f6f15a</div></div>
+  <div class="swatch s-fgreen"><div class="name">f-green</div><div class="hex">#c8f04a</div></div>
+  <div class="swatch s-fpurple"><div class="name">f-purple</div><div class="hex">#d29bff</div></div>
+  <div class="swatch s-forange"><div class="name">f-orange</div><div class="hex">#ff9544</div></div>
+</div>
+<div class="row" style="grid-template-columns: repeat(6, 1fr); margin-top: 10px;">
+  <div class="swatch s-fsalmon"><div class="name">f-salmon</div><div class="hex">#ffb09c</div></div>
+  <div class="swatch s-fmint"><div class="name">f-mint</div><div class="hex">#c5edd2</div></div>
+  <div></div><div></div><div></div><div></div>
+</div>
+
+</div></body></html>

@@ -1,0 +1,322 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="_card.css"><title>Imagery</title>
+<style>
+body { padding: 0; background: var(--concrete-1); }
+.surface { padding: 0; background: transparent; }
+
+/* ============ ZONE 1 — flyer-archive collage on wall ============ */
+.zone-flyers {
+  background: var(--wall);
+  padding: 18px 14px 26px;
+  position: relative;
+  overflow: hidden;
+}
+/* gritty wall texture */
+.zone-flyers::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background:
+    radial-gradient(rgba(20,17,13,0.08) 0.5px, transparent 0.7px),
+    radial-gradient(rgba(255,255,255,0.05) 0.4px, transparent 0.5px);
+  background-size: 3px 3px, 5px 5px;
+  mix-blend-mode: multiply;
+}
+.flyers-stack { position: relative; }
+.flyers-stack img {
+  width: 100%; height: auto; display: block;
+  margin-bottom: -28px; /* overlap */
+  position: relative;
+}
+.flyers-stack img:nth-child(1) { transform: rotate(-0.6deg); z-index: 1; }
+.flyers-stack img:nth-child(2) { transform: rotate(0.4deg); z-index: 2; }
+.flyers-stack img:nth-child(3) { transform: rotate(-0.3deg); z-index: 3; }
+.flyers-stack img:nth-child(4) { transform: rotate(0.5deg); z-index: 4; margin-bottom: 0; }
+
+/* ============ ZONE 2 — concrete plates: brutalist references ============ */
+.zone-concrete {
+  background-color: var(--concrete-2);
+  background-image:
+    /* board-marked formwork — wider, more obvious */
+    repeating-linear-gradient(90deg,
+      rgba(20,17,13,0.10) 0 1px,
+      transparent 1px 56px),
+    /* horizontal pour-line every couple feet */
+    repeating-linear-gradient(0deg,
+      rgba(20,17,13,0.07) 0 1px,
+      transparent 1px 220px),
+    /* aggregate */
+    radial-gradient(rgba(20,17,13,0.10) 0.6px, transparent 0.8px),
+    radial-gradient(rgba(255,255,255,0.05) 0.4px, transparent 0.5px);
+  background-size: auto, auto, 3px 3px, 5px 5px;
+  padding: 20px 14px;
+  border-top: 3px solid var(--ink);
+  border-bottom: 3px solid var(--ink);
+}
+.plates-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+.plate {
+  background: var(--paper-3);
+  border: 2.5px solid var(--ink);
+  box-shadow: 5px 5px 0 var(--ink);
+  position: relative;
+  aspect-ratio: 3/4;
+  overflow: hidden;
+}
+.plate img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+}
+.plate.tall { grid-column: span 1; }
+
+/* SVG silhouette of Trellick-style brutalist tower as placeholder
+   for the third plate — service tower + slab block */
+.plate.svg-trellick {
+  background: var(--paper-3);
+  display: flex; align-items: center; justify-content: center;
+}
+.plate.svg-trellick svg { width: 100%; height: 100%; display: block; }
+
+/* halftone overlay on photo plates */
+.plate.halftone::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background-image: radial-gradient(circle, var(--paper-3) 0.9px, transparent 1.1px);
+  background-size: 3.2px 3.2px;
+  mix-blend-mode: lighten;
+  opacity: 0.4;
+}
+
+/* ============ ZONE 3 — UNTRUE: night, ink, sodium ============ */
+.zone-untrue {
+  background: var(--ink);
+  color: var(--paper-3);
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+}
+.untrue-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 0;
+}
+.untrue-photo {
+  position: relative;
+  aspect-ratio: 3/2;
+  overflow: hidden;
+  background: var(--ink);
+}
+.untrue-photo img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  filter: contrast(1.2) brightness(0.92) saturate(1.1);
+  /* sodium edge: warm orange vignette into deep ink */
+}
+/* radial fade to ink at edges (sodium streetlight feel) */
+.untrue-photo::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(ellipse at 60% 60%,
+    transparent 0%,
+    transparent 35%,
+    rgba(20,17,13,0.55) 85%,
+    rgba(20,17,13,0.85) 100%);
+}
+
+.untrue-side {
+  background: var(--ink);
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: 0;
+  border-left: 2px solid var(--ink);
+}
+.untrue-mono, .untrue-mascot {
+  position: relative;
+  display: flex; align-items: center; justify-content: center;
+  border-bottom: 2px solid var(--concrete-4);
+  padding: 18px;
+}
+.untrue-mono { background: var(--ink); }
+.untrue-mono img {
+  width: 75%; height: auto; display: block;
+  filter: brightness(1.05);
+}
+.untrue-mascot {
+  background: var(--concrete-5);
+  border-bottom: none;
+}
+.untrue-mascot img {
+  width: 88%; height: auto; display: block;
+  filter: contrast(1.1) brightness(0.95);
+}
+
+/* ============ ZONE 4 — sodium-night strip ============ */
+.zone-sodium {
+  background: var(--ink);
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 21/8;
+  border-top: 2px solid var(--concrete-4);
+}
+.zone-sodium img {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; object-position: center 40%;
+  filter: contrast(1.3) brightness(0.85) saturate(1.15);
+}
+.zone-sodium::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background:
+    radial-gradient(ellipse at center, transparent 0%, transparent 30%, rgba(20,17,13,0.6) 80%, var(--ink) 100%),
+    /* halftone over photo */
+    radial-gradient(circle, rgba(20,17,13,0.3) 0.8px, transparent 1px);
+  background-size: auto, 3px 3px;
+  background-blend-mode: normal, multiply;
+}
+
+/* ============ ZONE 5 — paper-on-concrete: card sample ============ */
+.zone-card-on-concrete {
+  background-color: var(--concrete-1);
+  background-image:
+    repeating-linear-gradient(90deg,
+      rgba(20,17,13,0.06) 0 1px,
+      transparent 1px 64px),
+    repeating-linear-gradient(0deg,
+      rgba(20,17,13,0.04) 0 1px,
+      transparent 1px 192px),
+    radial-gradient(rgba(20,17,13,0.07) 0.5px, transparent 0.7px);
+  background-size: auto, auto, 3px 3px;
+  padding: 26px 14px 28px;
+  position: relative;
+}
+.pasted-card {
+  background: var(--paper-2);
+  border: 2.5px solid var(--ink);
+  box-shadow: 6px 6px 0 var(--ink);
+  padding: 0;
+  width: 90%;
+  margin: 0 auto;
+  transform: rotate(-0.6deg);
+  position: relative;
+}
+.pasted-card .pc-photo {
+  aspect-ratio: 3/2; overflow: hidden; border-bottom: 2.5px solid var(--ink);
+}
+.pasted-card .pc-photo img {
+  width: 100%; height: 100%; object-fit: cover;
+  filter: grayscale(1) contrast(1.6);
+}
+.pasted-card .pc-photo::after {
+  content: ""; display: block; height: 100%; margin-top: -100%;
+  background-image: radial-gradient(circle, var(--paper-2) 0.85px, transparent 1.1px);
+  background-size: 3px 3px;
+  mix-blend-mode: lighten; opacity: 0.5;
+  pointer-events: none;
+}
+</style></head>
+<body>
+<div class="surface">
+
+<!-- ZONE 1: flyer-archive collage on wall -->
+<div class="zone-flyers">
+  <div class="flyers-stack">
+    <img src="../assets/imagery-flyer-archive-1.png" alt="">
+    <img src="../assets/imagery-flyer-archive-2.png" alt="">
+    <img src="../assets/imagery-flyer-archive-3.png" alt="">
+    <img src="../assets/imagery-flyer-archive-4.png" alt="">
+  </div>
+</div>
+
+<!-- ZONE 2: concrete plates — brutalist UK references -->
+<div class="zone-concrete">
+  <div class="plates-grid">
+    <div class="plate">
+      <img src="../assets/imagery-xerox-tower.png" alt="">
+    </div>
+    <div class="plate">
+      <img src="../assets/imagery-pirate-tower.png" alt="">
+    </div>
+    <div class="plate svg-trellick">
+      <!-- Trellick-style silhouette: separated service tower + slab block,
+           bridged at top. Drawn ink-on-cream as a placeholder until
+           a real photograph is sourced. -->
+      <svg viewBox="0 0 120 160" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMax meet">
+        <!-- ground line -->
+        <line x1="0" y1="155" x2="120" y2="155" stroke="#14110d" stroke-width="1.5"/>
+        <!-- main slab block -->
+        <rect x="14" y="40" width="58" height="115" fill="#14110d"/>
+        <!-- balconies as horizontal stripes (deck access lines) -->
+        <g fill="#fdf6e0" opacity="0.85">
+          <rect x="16" y="48" width="54" height="1.5"/>
+          <rect x="16" y="58" width="54" height="1.5"/>
+          <rect x="16" y="68" width="54" height="1.5"/>
+          <rect x="16" y="78" width="54" height="1.5"/>
+          <rect x="16" y="88" width="54" height="1.5"/>
+          <rect x="16" y="98" width="54" height="1.5"/>
+          <rect x="16" y="108" width="54" height="1.5"/>
+          <rect x="16" y="118" width="54" height="1.5"/>
+          <rect x="16" y="128" width="54" height="1.5"/>
+          <rect x="16" y="138" width="54" height="1.5"/>
+        </g>
+        <!-- vertical window divisions on slab -->
+        <g fill="#fdf6e0" opacity="0.5">
+          <rect x="22" y="44" width="1" height="111"/>
+          <rect x="32" y="44" width="1" height="111"/>
+          <rect x="42" y="44" width="1" height="111"/>
+          <rect x="52" y="44" width="1" height="111"/>
+          <rect x="62" y="44" width="1" height="111"/>
+        </g>
+        <!-- service tower (separated, taller, with crown) -->
+        <rect x="84" y="20" width="22" height="135" fill="#14110d"/>
+        <!-- service tower crown / plant room -->
+        <rect x="80" y="14" width="30" height="8" fill="#14110d"/>
+        <rect x="92" y="4" width="6" height="14" fill="#14110d"/>
+        <!-- vertical fin / lift shaft windows -->
+        <g fill="#fdf6e0" opacity="0.6">
+          <rect x="92" y="28" width="2" height="120"/>
+          <rect x="98" y="28" width="2" height="120"/>
+        </g>
+        <!-- sky-bridge connecting service tower to slab -->
+        <rect x="72" y="42" width="12" height="6" fill="#14110d"/>
+        <rect x="72" y="42" width="12" height="1" fill="#fdf6e0" opacity="0.5"/>
+        <!-- second sky-bridge halfway down -->
+        <rect x="72" y="92" width="12" height="6" fill="#14110d"/>
+        <!-- third near bottom -->
+        <rect x="72" y="142" width="12" height="6" fill="#14110d"/>
+        <!-- halftone overlay on the dark structures -->
+        <defs>
+          <pattern id="ht" x="0" y="0" width="3" height="3" patternUnits="userSpaceOnUse">
+            <circle cx="1.5" cy="1.5" r="0.5" fill="#fdf6e0" opacity="0.18"/>
+          </pattern>
+        </defs>
+        <rect x="14" y="40" width="58" height="115" fill="url(#ht)"/>
+        <rect x="84" y="20" width="22" height="135" fill="url(#ht)"/>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<!-- ZONE 3: UNTRUE — night, ink, sodium -->
+<div class="zone-untrue">
+  <div class="untrue-grid">
+    <div class="untrue-photo">
+      <img src="../assets/imagery-pirate-tower.png" alt="">
+    </div>
+    <div class="untrue-side">
+      <div class="untrue-mono">
+        <img src="../assets/HID-monogram-cream-transparent.png" alt="">
+      </div>
+      <div class="untrue-mascot">
+        <img src="../assets/mascot-vinyl.png" alt="">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ZONE 4: sodium-night strip — full bleed -->
+<div class="zone-sodium">
+  <img src="../assets/imagery-pirate-tower.png" alt="">
+</div>
+
+<!-- ZONE 5: paper-on-concrete sample — the system's mental model -->
+<div class="zone-card-on-concrete">
+  <div class="pasted-card">
+    <div class="pc-photo">
+      <img src="../assets/imagery-xerox-tower.png" alt="">
+    </div>
+  </div>
+</div>
+
+</div>
+</body></html>

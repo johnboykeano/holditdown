@@ -1,0 +1,17 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="_card.css"><title>Mascot</title>
+<style>
+.row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+.cell { border: 2.5px solid var(--ink); box-shadow: 5px 5px 0 var(--ink); height: 200px; display: flex; align-items: center; justify-content: center; padding: 8px; }
+.c1 { background: var(--paper-3); }
+.c2 { background: var(--pink); }
+.c3 { background: var(--ink); }
+.cell img { max-height: 100%; max-width: 100%; }
+.lab { font-family: var(--font-mono); font-size: 9.5px; color: var(--ink-soft); letter-spacing: 0.12em; text-align: center; margin-top: 6px; }
+.cellw { display: flex; flex-direction: column; }
+</style></head><body><div class="surface">
+<div class="row">
+  <div class="cellw"><div class="cell c1"><img src="../assets/mascot-vinyl.png"></div><div class="lab">Cream paper · default</div></div>
+  <div class="cellw"><div class="cell c2"><img src="../assets/mascot-vinyl.png"></div><div class="lab">Pink · poster</div></div>
+  <div class="cellw"><div class="cell c3"><img src="../assets/mascot-vinyl.png"></div><div class="lab">Ink · inverse</div></div>
+</div>
+</div></body></html>

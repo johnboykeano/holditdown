@@ -1,0 +1,32 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="_card.css"><title>Borders</title>
+<style>
+.row3 { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 14px; }
+.box { background: var(--paper-2); height: 80px; display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-size: 10px; color: var(--ink-soft); border: 2.5px solid var(--ink); }
+.r0 { border-radius: 0; }
+.r2 { border-radius: 2px; }
+.r4 { border-radius: 4px; }
+.rp { border-radius: 999px; }
+.bw1 { border-width: 1.5px; }
+.bw2 { border-width: 2px; }
+.bw3 { border-width: 2.5px; }
+.bw4 { border-width: 4px; }
+.cap { font-family: var(--font-mono); font-size: 10px; color: var(--ink-soft); margin-top: 6px; text-align: center; }
+.cell { display: flex; flex-direction: column; }
+.h { font-family: var(--font-sans); font-weight: 900; font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 8px; }
+</style></head><body><div class="surface">
+<div class="h">Border Width</div>
+<div class="row3">
+  <div class="cell"><div class="box bw1">1.5</div><div class="cap">hairline</div></div>
+  <div class="cell"><div class="box bw2">2</div><div class="cap">chip</div></div>
+  <div class="cell"><div class="box bw3">2.5</div><div class="cap">card (default)</div></div>
+  <div class="cell"><div class="box bw4">4</div><div class="cap">poster</div></div>
+</div>
+<div style="height: 18px;"></div>
+<div class="h">Radius (default 0)</div>
+<div class="row3">
+  <div class="cell"><div class="box r0">0</div><div class="cap">card / button</div></div>
+  <div class="cell"><div class="box r2">2</div><div class="cap">tag</div></div>
+  <div class="cell"><div class="box r4">4</div><div class="cap">max for UI</div></div>
+  <div class="cell"><div class="box rp">999</div><div class="cap">pill (rare)</div></div>
+</div>
+</div></body></html>
