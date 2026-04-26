@@ -192,6 +192,16 @@
   --shadow-soft: 0 2px 0 rgba(20,17,13,0.15);
 
   /* ============================================================
+     NIGHT PALETTE — Manchester at night / Burial register
+     Extracted from imagery-pirate-tower.png and Burial self-titled.
+     Use with .hid-mode-night. See REFERENCES.md.
+     ============================================================ */
+  --night-sodium:   #e8a04a;   /* amber-sodium window warmth (tower block windows) */
+  --night-sky:      #1a1410;   /* near-ink warm dark sky */
+  --night-spill:    #f0e8d8;   /* cream light spill (--paper-bone) */
+  --night-neon:     var(--pink); /* neon intrusion — UFO, signage */
+
+  /* ============================================================
      TEXTURE
      The whole system sits on a paper-grain + halftone-noise floor.
      ============================================================ */
@@ -199,6 +209,119 @@
 
   --halftone-dots:
     radial-gradient(rgba(20,17,13,0.05) 1px, transparent 1px) 0 0 / 4px 4px;
+}
+
+/* ============================================================
+   SURFACE MODES — from the flyer-wall reference
+   Each accent colour is a full-surface background mode, not just
+   a chip fill. A "pink mode" flyer and a "yellow mode" flyer are
+   both valid, equal treatments. See REFERENCES.md — flyer-wall entry.
+   Usage: add .hid-mode-* to a section, card, or full page wrapper.
+   ============================================================ */
+
+.hid-mode-pink {
+  --surface-bg:     var(--pink);
+  --surface-fg:     var(--ink);
+  --surface-border: var(--ink);
+  background: var(--pink);
+  color: var(--ink);
+}
+
+.hid-mode-yellow {
+  --surface-bg:     var(--yellow);
+  --surface-fg:     var(--ink);
+  --surface-border: var(--ink);
+  background: var(--yellow);
+  color: var(--ink);
+}
+
+.hid-mode-cyan {
+  --surface-bg:     var(--cyan);
+  --surface-fg:     var(--ink);
+  --surface-border: var(--ink);
+  background: var(--cyan);
+  color: var(--ink);
+}
+
+.hid-mode-green {
+  --surface-bg:     var(--green);
+  --surface-fg:     var(--ink);
+  --surface-border: var(--ink);
+  background: var(--green);
+  color: var(--ink);
+}
+
+.hid-mode-purple {
+  --surface-bg:     var(--purple);
+  --surface-fg:     var(--ink);
+  --surface-border: var(--ink);
+  background: var(--purple);
+  color: var(--ink);
+}
+
+.hid-mode-orange {
+  --surface-bg:     var(--orange);
+  --surface-fg:     var(--ink);
+  --surface-border: var(--ink);
+  background: var(--orange);
+  color: var(--ink);
+}
+
+/* Flyer paper variants — slightly desaturated, reads as paper stock */
+.hid-mode-flyer-pink   { background: var(--flyer-pink);   color: var(--ink); }
+.hid-mode-flyer-yellow { background: var(--flyer-yellow);  color: var(--ink); }
+.hid-mode-flyer-cyan   { background: var(--flyer-cyan);    color: var(--ink); }
+.hid-mode-flyer-green  { background: var(--flyer-green);   color: var(--ink); }
+.hid-mode-flyer-purple { background: var(--flyer-purple);  color: var(--ink); }
+.hid-mode-flyer-orange { background: var(--flyer-orange);  color: var(--ink); }
+
+/* ============================================================
+   NIGHT MODE — Burial register
+   South London at 3am. Ink ground, cream text, no accents.
+   Distant-lights pattern via scattered radial gradients.
+   See REFERENCES.md — Burial self-titled entry.
+   ============================================================ */
+
+.hid-mode-night {
+  /* Manchester night palette — sodium warmth tokens */
+  --night-sodium:   #e8a04a;   /* amber-sodium window warmth */
+  --night-sky:      #1a1410;   /* near-ink warm dark sky */
+  --night-spill:    var(--paper-bone); /* cream light spill from windows */
+  --night-neon:     var(--pink);       /* neon intrusion (UFO, signage) */
+
+  background-color: var(--ink);
+  color: var(--paper-3);
+
+  /* Distant-lights pattern — city seen from above at night.
+     Ref: Burial self-titled cover, aerial Wandsworth Prison/Trinity Rd. */
+  background-image:
+    radial-gradient(rgba(232,160,74,0.18) 1px, transparent 2px),
+    radial-gradient(rgba(253,246,224,0.12) 1px, transparent 1px),
+    radial-gradient(rgba(232,160,74,0.08) 1.5px, transparent 2px);
+  background-size: 40px 40px, 17px 17px, 73px 73px;
+  background-position: 0 0, 11px 19px, 31px 7px;
+}
+
+.hid-mode-night .hid-display,
+.hid-mode-night .hid-h0,
+.hid-mode-night .hid-h1,
+.hid-mode-night .hid-h2,
+.hid-mode-night .hid-h3,
+.hid-mode-night .hid-h4 {
+  color: var(--paper-3);
+}
+
+.hid-mode-night .hid-body,
+.hid-mode-night .hid-body-sm {
+  color: var(--paper-2);
+}
+
+/* Hulme ghost palette — xerox/halftone mode for Hulme Crescents references.
+   High contrast B&W, no midtones. See REFERENCES.md — Hulme entry. */
+.hid-mode-ghost {
+  background: var(--concrete-4);
+  color: var(--paper-3);
+  filter: contrast(1.15);
 }
 
 /* ============================================================
