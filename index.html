@@ -5,33 +5,83 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>HOLD IT DOWN — Field Manual</title>
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
+
+/* ── DESIGN SYSTEM TOKENS ── */
 :root {
-  --paper:   #efe4c4;
-  --paper-2: #f9f0d6;
-  --paper-3: #fdf6e0;
-  --ink:     #14110d;
-  --ink-soft:#2c2820;
-  --pink:    #ff4488;
-  --cyan:    #5ec8db;
-  --yellow:  #ffd633;
-  --green:   #a8d836;
-  --purple:  #c98aff;
-  --orange:  #ff8a3d;
+  /* Concrete — primary ground */
+  --concrete-0:   #e6e3dd;
+  --concrete-1:   #cfccc4;   /* DEFAULT page ground */
+  --concrete-2:   #b3afa5;
+  --concrete-3:   #807d74;
+  --concrete-4:   #4f4d46;
+  --concrete-5:   #2c2b27;
+
+  /* Paper — for elements that read as PAPER pasted on concrete */
+  --paper:        #efe4c4;
+  --paper-2:      #f9f0d6;
+  --paper-3:      #fdf6e0;
+  --paper-bone:   #f0e8d8;
+
+  /* Ink */
+  --ink:          #14110d;
+  --ink-soft:     #2c2820;
+  --ink-faint:    rgba(20,17,13,0.55);
+  --ink-line:     rgba(20,17,13,0.18);
+
+  /* Rave-flyer accents — exact design system values */
+  --pink:         #ff2d7a;
+  --pink-deep:    #e6125f;
+  --cyan:         #2bc7e0;
+  --yellow:       #ffe600;
+  --green:        #b6ff2e;
+  --purple:       #b370ff;
+  --orange:       #ff7a1f;
+  --magenta:      #ff1ea0;
+  --blue:         #2050ff;
+
+  /* Semantic */
+  --bg:           var(--concrete-1);
+  --bg-card:      var(--concrete-0);
+  --bg-paper:     var(--paper-2);
+  --fg:           var(--ink);
+  --fg-muted:     var(--ink-soft);
+  --border:       var(--ink);
+
+  /* Fonts */
+  --font-display: "Anton", Impact, Haettenschweiler, "Arial Black", sans-serif;
+  --font-sans:    "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-mono:    "Space Mono", ui-monospace, "Courier New", monospace;
+
+  /* Shadows — hard offset, no blur */
+  --shadow-stamp-1: 2px 2px 0 var(--ink);
+  --shadow-stamp-2: 5px 5px 0 var(--ink);
+  --shadow-stamp-pink: 5px 5px 0 var(--pink);
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-html { background: var(--paper); }
+html { background: var(--concrete-1); }
 
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, "Liberation Sans", sans-serif;
+  font-family: var(--font-sans);
   font-size: 15px;
   line-height: 1.55;
   color: var(--ink);
-  background:
-    radial-gradient(rgba(20,17,13,0.05) 1px, transparent 1px) 0 0 / 4px 4px,
-    var(--paper);
+  /* Concrete ground: board-marked formwork seams + halftone grit */
+  background-color: var(--concrete-1);
+  background-image:
+    repeating-linear-gradient(90deg,
+      rgba(20,17,13,0.06) 0 1px,
+      transparent 1px 64px),
+    repeating-linear-gradient(0deg,
+      rgba(20,17,13,0.04) 0 1px,
+      transparent 1px 192px),
+    radial-gradient(rgba(20,17,13,0.05) 1px, transparent 1px);
+  background-size: auto, auto, 4px 4px;
   padding: 32px 22px 80px;
   max-width: 760px;
   margin: 0 auto;
@@ -39,12 +89,13 @@ body {
   overflow-x: hidden;
 }
 
+/* Paper-grain texture overlay */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
   pointer-events: none;
-  opacity: 0.07;
+  opacity: 0.06;
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence baseFrequency='0.95' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
   z-index: 0;
   mix-blend-mode: multiply;
@@ -71,21 +122,22 @@ main { position: relative; z-index: 1; }
   width: 100%;
   max-width: 360px;
   height: auto;
-  /* ink-press effect */
   filter: contrast(1.1);
   mix-blend-mode: multiply;
 }
 
 .tagline {
-  font-weight: 800;
-  font-size: 12px;
-  letter-spacing: 0.18em;
+  font-family: var(--font-display);
+  font-size: 16px;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--ink);
   margin: 14px 0 5px;
+  line-height: 1;
 }
 
 .meta {
+  font-family: var(--font-sans);
   font-weight: 700;
   font-size: 11px;
   letter-spacing: 0.22em;
@@ -96,25 +148,28 @@ main { position: relative; z-index: 1; }
   margin-bottom: 24px;
 }
 
+/* Flyer image — paper pasted on concrete */
 .flyer-img {
   width: 140px;
   flex-shrink: 0;
   border: 2.5px solid var(--ink);
-  box-shadow: 5px 5px 0 var(--ink);
+  box-shadow: var(--shadow-stamp-2);
   display: block;
+  /* paper pasted onto concrete */
+  background: var(--paper-bone);
 }
 
 @media (max-width: 520px) {
   .flyer-img { width: 100px; }
 }
 
-/* ── CARDS ── */
+/* ── CARDS — paper pasted onto concrete ── */
 .card {
   background: var(--paper-2);
   border: 2.5px solid var(--ink);
   margin-bottom: 28px;
   position: relative;
-  box-shadow: 5px 5px 0 var(--ink);
+  box-shadow: var(--shadow-stamp-2);
 }
 
 .card-body { padding: 28px 20px 22px; }
@@ -127,13 +182,14 @@ main { position: relative; z-index: 1; }
   background: var(--pink);
   color: var(--ink);
   border: 2.5px solid var(--ink);
+  font-family: var(--font-sans);
   font-weight: 900;
   font-size: 11px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   padding: 5px 11px 6px;
   transform: rotate(-2deg);
-  box-shadow: 2px 2px 0 var(--ink);
+  box-shadow: var(--shadow-stamp-1);
   z-index: 3;
   white-space: nowrap;
 }
@@ -144,14 +200,15 @@ main { position: relative; z-index: 1; }
 .sticker.orange { background: var(--orange); }
 .sticker.pink   { background: var(--pink); }
 
-/* ── SECTION TITLE ── */
+/* ── SECTION TITLE — Anton display ── */
 .card-title {
-  font-weight: 900;
-  font-size: 17px;
+  font-family: var(--font-display);
+  font-size: 20px;
   letter-spacing: 0.02em;
   text-transform: uppercase;
   color: var(--ink);
   margin-bottom: 14px;
+  line-height: 1.1;
 }
 
 /* ── BODY TEXT ── */
@@ -185,6 +242,7 @@ main { position: relative; z-index: 1; }
   color: var(--ink);
   border: 2px solid var(--ink);
   padding: 5px 11px 4px;
+  font-family: var(--font-sans);
   font-weight: 800;
   font-size: 11.5px;
   letter-spacing: 0.08em;
@@ -212,7 +270,7 @@ main { position: relative; z-index: 1; }
 .build-item:last-child { border-bottom: none; padding-bottom: 0; }
 
 .build-num {
-  font-weight: 900;
+  font-family: var(--font-mono);
   font-size: 11px;
   letter-spacing: 0.1em;
   color: var(--ink-soft);
@@ -221,12 +279,13 @@ main { position: relative; z-index: 1; }
 }
 
 .build-name {
-  font-weight: 900;
-  font-size: 14px;
+  font-family: var(--font-display);
+  font-size: 16px;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.03em;
   color: var(--ink);
   margin-bottom: 2px;
+  line-height: 1.1;
 }
 
 .build-desc {
@@ -244,6 +303,7 @@ main { position: relative; z-index: 1; }
 }
 
 .divider-label span {
+  font-family: var(--font-sans);
   font-weight: 900;
   font-size: 10px;
   letter-spacing: 0.24em;
@@ -270,6 +330,7 @@ main { position: relative; z-index: 1; }
 .brain-row:last-child { border-bottom: none; padding-bottom: 0; }
 
 .brain-label {
+  font-family: var(--font-sans);
   font-weight: 900;
   font-size: 10.5px;
   letter-spacing: 0.16em;
@@ -288,6 +349,7 @@ main { position: relative; z-index: 1; }
 .influence-section { margin-bottom: 18px; }
 
 .influence-label {
+  font-family: var(--font-sans);
   font-weight: 900;
   font-size: 10px;
   letter-spacing: 0.22em;
@@ -296,14 +358,15 @@ main { position: relative; z-index: 1; }
   margin-bottom: 8px;
 }
 
-/* ── BIG QUOTE ── */
+/* ── BIG QUOTE — ink tile on concrete ── */
 .big-quote {
   background: var(--ink);
   color: var(--paper-3);
   border: 2.5px solid var(--ink);
-  box-shadow: 5px 5px 0 var(--pink);
+  box-shadow: var(--shadow-stamp-pink);
   padding: 22px 22px 20px;
   margin-bottom: 28px;
+  font-family: var(--font-sans);
   font-weight: 900;
   font-style: italic;
   font-size: clamp(15px, 3vw, 20px);
@@ -332,6 +395,7 @@ main { position: relative; z-index: 1; }
   align-items: center;
   flex-wrap: wrap;
   gap: 10px;
+  font-family: var(--font-sans);
   font-weight: 800;
   font-size: 10.5px;
   letter-spacing: 0.18em;
@@ -339,6 +403,7 @@ main { position: relative; z-index: 1; }
   color: var(--ink-soft);
 }
 
+/* Stamp — paper element on concrete */
 .stamp {
   display: inline-flex;
   align-items: center;
@@ -349,7 +414,7 @@ main { position: relative; z-index: 1; }
   font-weight: 900;
   letter-spacing: 0.16em;
   transform: rotate(-1.5deg);
-  box-shadow: 2px 2px 0 var(--ink);
+  box-shadow: var(--shadow-stamp-1);
 }
 </style>
 </head>
@@ -569,6 +634,5 @@ main { position: relative; z-index: 1; }
 </div>
 
 </main>
-
 </body>
 </html>
